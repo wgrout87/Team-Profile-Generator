@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
-        fs.writeFile("./dist/README.md", fileContent, err => {
+        fs.writeFile("./dist/team-profile.html", fileContent, err => {
             if (err) {
                 reject(err);
                 return;
@@ -10,7 +10,7 @@ const writeFile = fileContent => {
 
             resolve({
                 ok: true,
-                message: "README created!"
+                message: "HTML file created!"
             });
         });
     });

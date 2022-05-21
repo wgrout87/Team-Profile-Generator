@@ -3,6 +3,7 @@ const { writeFile } = require("./utils/write-file");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const generatePage = require("./src/page-template");
 
 
 
@@ -268,4 +269,11 @@ function addIntern(dataObj) {
 init()
     .then(answersObj => generateManager(answersObj.name, answersObj.id, answersObj.email, answersObj.officeNumber))
     .then(addStaff)
-    .then(data => console.log(data.staffArray));
+    .then(data => generatePage(data))
+    .then(md => writeFile(md))
+    .then(response => {
+        console.log(response.message)
+    })
+    .catch(err => {
+        console.log(err);
+    });
