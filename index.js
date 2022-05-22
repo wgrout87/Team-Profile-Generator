@@ -113,7 +113,7 @@ function addStaff(dataObj) {
             // Prompt to determine if more staff should be added
             type: "list",
             name: "addStaff",
-            message: questions.addStaff,
+            message: questions.staff,
             choices: ["Engineer", "Intern", "No"]
         }
     ])
