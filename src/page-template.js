@@ -5,32 +5,32 @@ const generateCard = employee => {
     let cardOutput = `
     <div class="card col-12 col-md-6 col-lg-4 m-3 px-0 shadow-lg" style="max-width: 20rem;">
         <div class="card-header text-white bg-primary">
-            <p class="fs-4">${employee.name}</p>`
+            <p class="fs-4">${employee.getName()}</p>`
     // HTML output specific to the Manager's card
     if (employee.getRole() === "Manager") {
         cardOutput += `
             <p class="fs-5"><i class="fa-solid fa-mug-hot"></i> ${employee.getRole()}</p>`;
-        roleSpecificInfo = `<li class="list-group-item">Office Number: ${employee.officeNumber}</li>`;
+        roleSpecificInfo = `<li class="list-group-item">Office Number: ${employee.getOfficeNumber()}</li>`;
     };
     // HTML output specific to the Engineers's card
     if (employee.getRole() === "Engineer") {
         cardOutput += `
             <p class="fs-5"><i class="fa-solid fa-glasses"></i> ${employee.getRole()}</p>`;
-        roleSpecificInfo = `<li class="list-group-item">GitHub: <a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a></li>`;
+        roleSpecificInfo = `<li class="list-group-item">GitHub: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a></li>`;
     };
     // HTML output specific to the Intern's card
     if (employee.getRole() === "Intern") {
         cardOutput += `
             <p class="fs-5"><i class="fa-solid fa-user-graduate"></i> ${employee.getRole()}</p>`;
-        roleSpecificInfo = `<li class="list-group-item">School: ${employee.school}</li>`;
+        roleSpecificInfo = `<li class="list-group-item">School: ${employee.getSchool()}</li>`;
     };
     // Adds the remaining HTML for the card
     cardOutput += `
         </div>
         <div class="card-body bg-light">
             <ul class="list-group list-group-flush border my-2">
-                <li class="list-group-item">ID: ${employee.id}</li>
-                <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+                <li class="list-group-item">ID: ${employee.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
                 ` + roleSpecificInfo + `
                 </ul>
             </div>
